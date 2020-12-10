@@ -1,0 +1,21 @@
+body {
+  background-color: #2A2B2DFF;
+}
+h1 {
+  color: #2DA8D8FF;
+  padding: 30px;
+}
+
+table, th, td {
+  width: 50%;
+  padding: 15px;
+  border: 2px solid #D9514EFF;
+  border-collapse: collapse;
+  color: #2DA8D8FF;
+  background-color: #2A2B2DFF ;
+}
+
+/*table {*/
+/*  border: 2px #D9514EFF ;*/
+/*  color: #2DA8D8FF;*/
+/*}*/
