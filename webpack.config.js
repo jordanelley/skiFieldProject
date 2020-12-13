@@ -20,7 +20,7 @@ module.exports = {
         loaders: ['style-loader', 'css-loader'], // Process and embed css into the page
       },
       {
-        test: /\.(woff|woff2|eot|ttf|svg|png|cur)$/,
+        test: /\.(woff|woff2|eot|ttf|svg|png|cur|gif)$/,
         loaders: ['url-loader'],
       },
     ],
@@ -39,7 +39,8 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'index.html', to: '.' }
+        { from: 'index.html', to: '.' },
+        { from: './images/*', to: '.'}
       ],
     }),
   ],
