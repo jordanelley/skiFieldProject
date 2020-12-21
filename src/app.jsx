@@ -1,5 +1,5 @@
 import React from 'react';
-import AddSkiField from './components/AddSkiField'
+import AddSkiFieldForm from './components/AddSkiFieldForm'
 import './app.css';
 
 const Table = (
@@ -23,7 +23,7 @@ const Table = (
 import ApplicationTemplate from "./components/ApplicationTemplate";
 
 const App = () => (
-    <ApplicationTemplate title='Ski Fields' form={<AddSkiField/>} >
+    <ApplicationTemplate title='Ski Fields' form={<AddSkiFieldForm/>} >
         {Table}
     </ApplicationTemplate>
 )
