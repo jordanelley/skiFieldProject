@@ -1,32 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {getAllSkiFieldReviews} from "./api/skiFieldAPI";
 import AddSkiFieldForm from './components/AddSkiFieldForm'
+import TableOfReviews from './components/TableOfReviews'
+import ApplicationTemplate from "./components/ApplicationTemplate";
 import './app.css';
 
-const Table = (
-    <table>
-        <tr>
-            <th> ski field </th>
-            <th> rating </th>
-        </tr>
-        <tr>
-            <td> Cadrona </td>
-            <td> 5 stars </td>
-        </tr>
-        <tr>
-            <td> Whakapapa </td>
-            <td> 2 stars </td>
-        </tr>
-    </table>
+ const App = () => {
+     const [reviews, setReviews] = useState([]);
+     const [submitCount, setSubmitCount] = useState(0);
 
-)
+     const onSubmit = () => {setSubmitCount(submitCount+1)};
 
-import ApplicationTemplate from "./components/ApplicationTemplate";
+     useEffect(() => {
+         getAllSkiFieldReviews()
+             .then(data => setReviews(data))
+     },[submitCount]);
 
-const App = () => (
-    <ApplicationTemplate title='Ski Fields' form={<AddSkiFieldForm/>} >
-        {Table}
-    </ApplicationTemplate>
-)
+     return(
+    <ApplicationTemplate title='Ski Fields' form={<AddSkiFieldForm onSubmit={onSubmit}/>} >
+        <TableOfReviews reviews={reviews}/>
+    </ApplicationTemplate>)
+}
 
 
 
