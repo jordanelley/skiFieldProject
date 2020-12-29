@@ -14,8 +14,19 @@ table, th, td {
   color: #2DA8D8FF;
   background-color: #2A2B2DFF ;
 }
+form,label {
+  color: #2DA8D8FF;
+  padding: 6px;
+}
 
-/*table {*/
-/*  border: 2px #D9514EFF ;*/
-/*  color: #2DA8D8FF;*/
-/*}*/
+input{
+  background-color: lightgray;
+}
+
+img{
+  z-index: -1;
+}
+
+button{
+  margin-left: 1rem;
+}
