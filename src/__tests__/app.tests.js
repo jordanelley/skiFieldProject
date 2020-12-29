@@ -7,25 +7,26 @@ import '@testing-library/jest-dom/extend-expect';
 //todo when the app starts, renders existing ratings
 
 describe('Ski field rating application', () => {
-    it('Should allow user to add a ski field rating', async () => {
-        nock('http://localhost:5000')
-            .defaultReplyHeaders({
-                'access-control-allow-origin': '*',
-                'access-control-allow-credentials': 'true'
-            })
-            .get('/reviews')
-            .reply(200, []);
-        nock('http://localhost:5000')
-            .defaultReplyHeaders({
-                'access-control-allow-origin': '*',
-                'access-control-allow-credentials': 'true'
-            })
-            .post('/reviews')
-            .reply(200)
-            .get('/reviews')
-            .reply(200, ['Test ski field 5 stars']);
+    // nock('http://localhost:5000')
+    //     .defaultReplyHeaders({
+    //         'access-control-allow-origin': '*',
+    //         'access-control-allow-credentials': 'true'
+    //     })
+    //     .get('/reviews')
+    //     .reply(200, []);
+    nock('http://localhost:5000')
+        .defaultReplyHeaders({
+            'access-control-allow-origin': '*',
+            'access-control-allow-credentials': 'true'
+        })
+        .post('/reviews')
+        .reply(200)
+        .get('/reviews')
+        .reply(200, ['Test ski field 5 stars']);
 
-        render(<App />);
+    render(<App />);
+    it('Should allow user to add a ski field rating', async () => {
+
 
 // We must wait for this to avoid updated state after the component is unmounted.
         await waitFor(() => screen.getByText('name :'));
@@ -40,6 +41,10 @@ describe('Ski field rating application', () => {
         const testSkiFieldRating = await waitFor(() => screen.getByText('Test ski field 5 stars'));
         expect(testSkiFieldRating).toBeInTheDocument();
     })
-    }
 
+    it( 'Should render existing items - example with 1 item', async () => {
+        const testSkiFieldRating = await waitFor(() => screen.getByText('Test ski field 5 stars'));
+        expect(testSkiFieldRating).toBeInTheDocument();
+    })
+    }
 )
