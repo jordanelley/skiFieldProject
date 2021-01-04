@@ -2,12 +2,13 @@ import React from 'react';
 import {node, string} from "prop-types";
 
 const ApplicationTemplate = ({title, form, children}) => (
-    <>
-        <h1>{title}</h1>
-        {form}
-        <img src="../images/8bitSkiField.gif"/>
-        {children}
-        </>
+    <div className='pageLayout'>
+        <div className='pageHeader'>
+            <h1>{title}</h1>
+            {form}
+        </div>
+        <div className="pageContent">{children}</div>
+    </div>
 );
 ApplicationTemplate.propTypes = {
     title: string.isRequired,
