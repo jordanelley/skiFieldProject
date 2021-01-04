@@ -7,7 +7,7 @@ function AddSkiFieldForm({onSubmit}){
     const [name, setName] = useState("");
     const [review, setReview] = useState("");
     return (
-         <div>
+         <div className='form'>
             <h1>Know of a ski field which isn't listed? Add a new one</h1>
             <form>
                 <label id="name" htmlFor='name_input'>name :</label>

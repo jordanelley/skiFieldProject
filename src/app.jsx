@@ -17,7 +17,7 @@ import './app.css';
      },[submitCount]);
 
      return(
-    <ApplicationTemplate title='Ski Fields' form={<AddSkiFieldForm onSubmit={onSubmit}/>} >
+    <ApplicationTemplate form={<AddSkiFieldForm onSubmit={onSubmit}/>} >
         <TableOfReviews reviews={reviews}/>
     </ApplicationTemplate>)
 }

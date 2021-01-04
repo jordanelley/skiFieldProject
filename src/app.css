@@ -2,8 +2,19 @@ body {
   background-color: #2A2B2DFF;
 }
 h1 {
-  color: #2DA8D8FF;
+  color: #2A2B2DFF;
   padding: 30px;
+  text-shadow: 2px 2px #D1A080;
+  /*font-size: 50px;*/
+}
+
+.form {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  font-family: sans-serif;
+  width: 80%;
 }
 
 table, th, td {
@@ -15,16 +26,31 @@ table, th, td {
   background-color: #2A2B2DFF ;
 }
 form,label {
-  color: #2DA8D8FF;
+  color: #2A2B2DFF;
   padding: 6px;
+  text-shadow: 1px 1px #D1A080;
+  font-weight: bold;
 }
 
 input{
   background-color: lightgray;
 }
 
-img{
-  z-index: -1;
+.pageLayout {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 700px auto;
+}
+
+.pageHeader {
+  grid-column: 1;
+  grid-row: 1;
+  background-image: url("../images/8bitSkiField.gif");
+  background-repeat: repeat-x;
+}
+.pageContent {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 button{
