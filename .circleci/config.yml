@@ -13,8 +13,8 @@ jobs:
           name: Install Dependencies
           command: npm install
       - run:
-          name: Run tests
-          command: npm run test
+          name: Run build
+          command: npm run build
 workflows:
   react-build:
     jobs:
