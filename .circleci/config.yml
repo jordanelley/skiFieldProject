@@ -1,21 +1,21 @@
 version: 2.1
 orbs:
-  node: circleci/node@10.6.3
-#jobs:
-#  build:
-##    docker:
-##      - image: circleci/node:10.16.3
-#    working_directory: ~/repo
-#    steps:
-#      - checkout
-#      # install dependencies
-#      - run:
-#          name: Install Dependencies
-#          command: npm install
-#      - run:
-#          name: Run tests
-#          command: npm run test
+  node: circleci/node@3.0.0
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.16.3
+    working_directory: ~/repo
+    steps:
+      - checkout
+      # install dependencies
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Run tests
+          command: npm run test
 workflows:
-  node-tests:
+  react-build:
     jobs:
-      - node/build
+      - build
