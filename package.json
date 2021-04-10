@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "deploy": "./ops/deploy.sh"
   },
   "repository": {
     "type": "git",
