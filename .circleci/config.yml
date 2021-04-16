@@ -5,6 +5,11 @@ jobs:
       - image: circleci/node:10.16.3
     working_directory: ~/repo
     steps:
+      - attach_workspace:
+          at: ~/data
+      - persist_to_workspace:
+          root: .
+          paths: dist
       - checkout
       # install dependencies
       - run:
@@ -17,6 +22,8 @@ jobs:
     docker:
       - image: amazon/aws-cli
     steps:
+      - attach_workspace:
+          at: ~/data
       - checkout
       - run:
           name: Upload to s3
@@ -24,4 +31,7 @@ jobs:
 workflows:
   react-build:
     jobs:
+      - build
       - deploy
+          requires:
+            - build
