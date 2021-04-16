@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
 jobs:
   build:
     docker:
@@ -15,10 +13,15 @@ jobs:
       - run:
           name: Run build
           command: npm run build
+  deploy:
+    docker:
+      -image: amazon/aws-cli
+    steps:
       - run:
           name: Upload to s3
           command: npm run deploy
+
 workflows:
   react-build:
     jobs:
-      - build
+      - deploy
