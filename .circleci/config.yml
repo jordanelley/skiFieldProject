@@ -15,11 +15,11 @@ jobs:
           command: npm run build
   deploy:
     docker:
-      -image: amazon/aws-cli
+      - image: amazon/aws-cli
     steps:
-#      - run:
-#          name: Upload to s3
-#          command: npm run deploy
+      - run:
+          name: Upload to s3
+          command: npm run deploy
 
 workflows:
   react-build:
