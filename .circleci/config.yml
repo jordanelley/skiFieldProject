@@ -9,7 +9,8 @@ jobs:
           at: ~/
       - persist_to_workspace:
           root: ~/
-          paths: repo
+          paths:
+            - repo
       - checkout
       # install dependencies
       - run:
