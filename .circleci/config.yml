@@ -7,10 +7,12 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
+      - run: mkdir -p dist
+      - run: ls
       - persist_to_workspace:
           root: ~/
           paths:
-            - repo
+            - dist
       - checkout
       # install dependencies
       - run:
