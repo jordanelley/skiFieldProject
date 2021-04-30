@@ -10,7 +10,7 @@ jobs:
       - run: mkdir -p dist
       - run: ls
       - persist_to_workspace:
-          root: ~/dist
+          root: dist
           paths:
             - dist
       - checkout
