@@ -9,7 +9,7 @@ jobs:
           at: ~/data
       - persist_to_workspace:
           root: .
-          paths: dist
+          paths: repo
       - checkout
       # install dependencies
       - run:
