@@ -27,8 +27,8 @@ jobs:
       - run: yum install -y gzip
       - attach_workspace:
           at: ~/
-      - run: ls
       - checkout
+      - run: ls
       - run:
           name: Upload to s3
           command: ./ops/deploy.sh
