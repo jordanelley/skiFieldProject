@@ -19,13 +19,13 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: dist
-      - run: ls
   deploy:
     docker:
       - image: amazon/aws-cli
     steps:
+      - run: ls
       - attach_workspace:
-          at: ~/data
+          at: ~/
       - checkout
       - run:
           name: Upload to s3
