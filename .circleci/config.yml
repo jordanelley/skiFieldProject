@@ -23,8 +23,7 @@ jobs:
     docker:
       - image: amazon/aws-cli
     steps:
-      - run: apt-get update -y
-      - run: apt-get install -y tar
+      - run: yum install -y tar
       - attach_workspace:
           at: ~/
       - run: ls
