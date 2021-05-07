@@ -23,9 +23,11 @@ jobs:
     docker:
       - image: amazon/aws-cli
     steps:
-      - run: ls
+      - run: apt-get update -y
+      - run: apt-get install -y tar
       - attach_workspace:
           at: ~/
+      - run: ls
       - checkout
       - run:
           name: Upload to s3
