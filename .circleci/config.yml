@@ -8,18 +8,18 @@ jobs:
       - attach_workspace:
           at: ~/
 #      - run: mkdir -p dist
-#      - run: ls
-      - persist_to_workspace:
-          root: .
-          paths: .
+      - run: ls
       - checkout
-      # install dependencies
       - run:
+      # install dependencies
           name: Install Dependencies
           command: npm install
       - run:
           name: Run build
           command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths: dist
   deploy:
     docker:
       - image: amazon/aws-cli
