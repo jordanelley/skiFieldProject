@@ -1,0 +1,40 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - attach_workspace:
+          at: ~/
+#      - run: mkdir -p dist
+      - checkout
+      - run:
+      # install dependencies
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Run build
+          command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths: dist
+  deploy:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - run: yum install -y tar
+      - run: yum install -y gzip
+      - attach_workspace:
+          at: ~/
+      - checkout
+      - run: ls
+      - run:
+          name: Upload to s3
+          command: ./ops/deploy.sh ~/dist
+workflows:
+  react-build:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
