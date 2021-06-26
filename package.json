@@ -4,7 +4,7 @@
   "description": "app",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "build": "webpack",
     "start": "webpack-dev-server",
     "deploy": "./ops/deploy.sh"
